@@ -6,16 +6,19 @@
     <body>
         <script>
             let año=prompt("Introduce un año bisiesto o no.");
-            console.log(esBisiesto(año));
+            if(esBisiesto(año))
+                window.alert(año + " es bisiesto.");
+            else
+                window.alert(año + " no es bisiesto.")
             function esBisiesto(year){
-                if(parseInt(year)%4==0 && year.substr(year.length-2,2)!="00"){
-                    return 1;    
+                if(parseInt(year)%4==0 && year.substr(year.length-2,2)!="00"){ //Comprueba que el año no termina en 00 y es divisible entre 4
+                    return true;    
                 }
-                if(year.substr(year.length-2,2)=="00"){
+                if(year.substr(year.length-2,2)=="00"){ //Si termina en 00 se comprueba si es divisible entre 400
                         if(parseInt(year)%400==0)
-                        return 1;
+                        return true;
                 }
-                return 0;
+                return false;
             }
         </script>
     </body>
