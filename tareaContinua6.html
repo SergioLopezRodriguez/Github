@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+        <title>tareaContinua6</title>
+    </head>
+    <body>
+        <script>
+            //Queda un poco por solucionar, tiene que comprobar que los datos introducidos sean correctos   
+            let nom1="Maxwell Wright",nom2="Raja Villareal",nom3="Helen Richards"
+            let tel1="(0191) 719 6495",tel2="0866 398 2895",tel3="0800 1111"
+            let co1="Curabitur.egestas.nunc@nonummyac.co.uk",co2="posuere.vulputate@sed.com",co3="libero@convallis.edu"
+
+            let Contactos= [
+                contacto1= {nombre:nom1, telefono:tel1, correo:co1},
+                contacto2= {nombre:nom2, telefono:tel2, correo:co2},
+                contacto3= {nombre:nom3, telefono:tel3, correo:co3}
+            ]
+            Contactos.push(contacto4= {nombre:"Maisie Haley", telefono:"0913 531 3030", correo:"risus.Quisque@urna.ca"})
+
+            let salir=false;
+
+            function showContact(Contacts,indice){
+                if(Contacts instanceof Array){
+                    console.log(Contacts[indice].nombre+"/"+Contacts[indice].telefono+"/"+Contacts[indice].correo);
+                }else{
+                    window.alert("No es un array");
+                }
+            }
+
+            function showAllContacts(Contacts){
+                if(Contacts instanceof Array){
+                    Contacts.forEach((element) => console.log(element.nombre+"/"+element.telefono+"/"+element.correo));
+                }else
+                window.alert("No es un array");
+            }
+
+            function addNewContact(Contacts,name,tel,co){
+                if(Contacts instanceof Array && name!="" && tel!="" && co!=""){
+                    Contacts.push(newContact= {nombre:name,telefono:tel,correo:co});
+                }else
+                    window.alert("Alguno de los campos introducidos estaba vacío");
+            }
+            while(!salir){
+
+            let decisión=prompt("Introduce qué quieres hacer: (Primero) Mostrar el primer contacto, (Último) Mostrar el último contacto, (Todos) Mostrar todos los contactos, (Nuevo) Añadir un nuevo contacto o (Salir) Salir del bucle");
+                
+                if(decisión=="Primero")
+                    showContact(Contactos,0);
+                else if(decisión=="Último")
+                    showContact(Contactos,Contactos.length-1);
+                else if(decisión=="Todos")
+                    showAllContacts(Contactos);
+                else if(decisión=="Nuevo")
+                    addNewContact(Contactos,prompt("Nombre del nuevo contacto"),prompt("Teléfono del nuevo contacto"),
+                                  prompt("Correo del nuevo contacto"));
+                else if(decisión=="Salir")
+                    salir=true;
+                else
+                    window.alert("La opción introducida no es válida");
+                }
+            console.log(Contactos);
+        </script>
+    </body>
+</html> 

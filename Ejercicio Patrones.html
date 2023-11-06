@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio Patrones</title>
+    </head>
+    <body>
+        <script>
+            //Ejercicio encontrar patrones en una cadena
+            //Cadena
+            const cadena=prompt("Introduce una cadena de texto");
+            console.log(cadena);
+
+            //Llamada a la función
+            console.log(numeroPatrones(cadena));
+
+            //Función
+            function numeroPatrones(texto){
+                let P00=0,P101=0,Pabc=0,PH0=0,Patrones=0; //Resultado final
+                let txt=texto.toUpperCase(); //Elimina distinción mayusculas/minusculas
+
+                //La función for busca el primer caracter de txt y sus dos siguientes, si coincide con el patrón: Patrones++
+                for(i=0;i<txt.length;i++){
+                    if(txt.substr(i,2)=="00"){
+                        P00++;
+                    }else if(txt.substr(i,3)=="101"){
+                        P101++;
+                    }else if(txt.substr(i,3)=="ABC"){
+                        Pabc++;
+                    }else if(txt.substr(i,2)=="H0"){
+                        PH0++;
+                    }
+                }
+                Patrones="00 hay " + P00 + ", 101 hay " + P101 + ", H0 hay "+ PH0 + ", ABC hay " + Pabc + ", en total hay: " + (P00+P101+PH0+Pabc);
+                return Patrones;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio Tren</title>
+    </head>
+    <body>
+        <script>
+            //Queda pendiente la modificación de que son dos dígitos
+            //Pide el número y lo transforma en número haciendo comprobación
+            let numero=parseInt(prompt("Número de pareja de dígitos"));
+            while(isNaN(numero) || numero%2!=0){
+                numero=parseInt(prompt("Número no válido, intentalo otra vez"));
+            }
+
+            //Divide el número en partes convirtiéndolo en string y lo invierte
+            const array=numero.toString().split("");
+            array.reverse();
+            console.log(array);
+
+            //Recorre el array por elemento comprobando si es par/impar (subida/bajada)
+            array.forEach((number,index) => {
+                if(index%2==0 && number==0)
+                    console.log("No sube nadie.");
+                else if(number==0)
+                    console.log("No baja nadie.");
+                else if(index%2==0)
+                    console.log("Suben " + number + " personas.");
+                else
+                    console.log("Bajan " + number + " personas.");
+            })
+            /*  Esta es la segunda interpretación que intenté
+                for(i=array.length-1;i>=0;i--){
+                if(array[i]==0 && array[i]%2==0)
+                    console.log("Nadie sube.");
+                else if(array[i]==0)
+                    console.log("Nadie baja.");
+                else if(array.indexOf[i]%2!=0)
+                    console.log("Suben "+ array[i] + " personas.");
+                else
+                    console.log("Bajan "+ array[i] + " personas,");
+            }*/
+            // Esta fue la interpretación inicial console.log(array[array.length-1]+" llegaron al final");
+        </script>
+    </body>
+</html>

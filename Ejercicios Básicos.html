@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicios Básicos</title>
+    </head>
+    <body>
+        <script>
+            /*Programa que pida dos números y nos diga cuál es el mayor, el menor 
+            o si son iguales. Si no son números o son menores que cero, que lo
+            vuelva a pedir*/
+            let n1=prompt("Dame el primer número");
+            let n2=prompt("Dame el segundo número");
+            while(isNaN(n1) || n1<0){
+                n1=prompt("Primer número incorrecto, vuelve a introducirlo");
+            }
+            while(n2<0 || isNaN(n2)){
+                n2=prompt("Segundo número incorrecto, vuelve a introducirlo");
+            }
+            if(n1>n2){
+                console.log(n1+" es mayor y "+n2+" es menor");
+            }else if(n1==n2){
+                console.log("Son iguales");
+            }else{
+                console.log(n1+" es menor y "+n2+" es mayor");
+            }
+
+            //Media y suma hasta meter número negativo
+
+            let media=(n1+n2)/2;
+            console.log(media);
+            let n3=prompt("Introduce un número a sumar, un negativo detiene la suma");
+            while(n3>0){
+                media+=n3;
+                n3=prompt("Introduce un número a sumar, un negativo detiene la suma");
+            }
+
+            //Mostrar números entre los dos introducidos por el usuario
+
+            if(n1<n2){
+                n3=n1;
+                while(n3<n2){
+                    n3++;
+                    console.log(n3);
+                }
+            }else if(n1>n2){
+                n3=n2;
+                while(n3<n1){
+                    n3++;
+                    console.log(n3);
+                }
+            }
+
+            //Muestra los impares entre los introducidos por el usuario
+
+            if(n1<n2){
+                n3=n1;
+                while(n3<n2){
+                    n3++;
+                    if(n3%2!=0)
+                    console.log(n3);
+                }
+            }else if(n1>n2){
+                n3=n2;
+                while(n3<n1){
+                    n3++;
+                    if(n3%2!=0)
+                    console.log(n3);
+                }
+            }
+
+            //Mostrar todos los divisores de un número
+
+            let dividendo=prompt("Dame un número a dividir");
+            
+        </script>
+    </body>
+</html>

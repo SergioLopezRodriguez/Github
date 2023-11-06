@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+        <title>tareaContinua4</title>
+    </head>
+    <body>
+        <script>
+            //Queda un poco por solucionar, tiene que comprobar que los datos introducidos sean correctos   
+            let nom1="Maxwell Wright",nom2="Raja Villareal",nom3="Helen Richards"
+            let tel1="(0191) 719 6495",tel2="0866 398 2895",tel3="0800 1111"
+            let co1="Curabitur.egestas.nunc@nonummyac.co.uk",co2="posuere.vulputate@sed.com",co3="libero@convallis.edu"
+
+            let Contactos= [
+                contacto1= {nombre:nom1, telefono:tel1, correo:co1},
+                contacto2= {nombre:nom2, telefono:tel2, correo:co2},
+                contacto3= {nombre:nom3, telefono:tel3, correo:co3}
+            ]
+            Contactos.push(contacto4= {nombre:"Maisie Haley", telefono:"0913 531 3030", correo:"risus.Quisque@urna.ca"})
+
+            let decisión=prompt("Introduce qué quieres hacer: (Primero) Mostrar el primer contacto, (Último) Mostrar el último contacto o (Nuevo) Añadir un nuevo contacto")
+
+            switch (decisión){
+                case "Primero":
+                console.log(Contactos[0].nombre+"/"+Contactos[0].telefono+"/"+Contactos[0].correo);
+                break;
+                case "Último":
+                console.log(Contactos[Contactos.length-1].nombre+"/"+Contactos[Contactos.length-1].telefono+"/"+Contactos[Contactos.length-1].correo);
+                break;
+                case "Nuevo":
+                var nombre=prompt("Nombre del nuevo contacto"),telefono=prompt("Teléfono del nuevo contacto"),
+                    correo=prompt("Correo del nuevo contacto");
+                if (nombre!="" && telefono!="" && correo!="")
+                Contactos.push(nuevoContacto= {nombre:nombre,telefono:telefono,correo:correo});
+                else
+                window.alert("Alguno de los campos introducidos estaba vacío");
+                break;
+                default:
+                window.alert("La opción introducida no es válida");    
+                }
+            console.log(Contactos);
+        </script>
+    </body>
+</html> 

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio Rombo</title>
+    </head>
+    <body>
+        <p style="text-align: center;">
+        <script>
+            //Queda pendiente de revisión
+            //Primera parte del rombo
+            for(i=0;i<4 ;i++){
+                let cont=4;
+                while(cont>i){
+                    document.write("&nbsp");
+                    cont--;
+                }
+                let asterisk=1;
+                while(asterisk<=i){
+                    document.write("**");
+                    asterisk++;
+                }
+                document.write("*<br/>");
+            }
+
+            //Parte invertida del rombo
+            for(i=2;i>=0 ;i--){
+                let cont=0;
+                while(cont<i){
+                    document.write("&nbsp");
+                    cont++;
+                }
+                let asterisk=1;
+                while(asterisk<=i){
+                    document.write("**");
+                    asterisk++;
+                }
+                document.write("*<br/>");         
+            }
+        </script>
+        </p>
+    </body>
+</html>

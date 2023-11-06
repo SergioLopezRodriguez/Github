@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 4.1</title>
+    </head>
+    <body>
+        <script>
+            //No se ordena como debería el inverso
+            const socios= [];
+            for(i=0;i<10;i++){
+                socios[i]=prompt("Introduce el nombre del socio nº"+(i+1));
+            }
+            console.log(socios);
+            console.log(socios.length);
+            const sociosOriginal=socios;
+            sociosOriginal.reverse();
+            socios.sort();
+            console.log(socios);
+            console.log(sociosOriginal);
+        </script>
+    </body>
+</html>

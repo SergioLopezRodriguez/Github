@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio Fechas</title>
+    </head>
+    <body>
+        <script>
+            //Obtener los días que han pasado entre hoy y otra fecha fija
+            let hoy=new Date();
+            let fecha=new Date(1990,4,7);
+            let diferencia=hoy.getTime()-fecha.getTime();
+            let años=diferencia/31557600000;
+            let meses=años*12;
+            while(meses>12){
+                meses-=12;
+            }
+            let días=meses*30;
+            while (días>30){
+                días-=30;
+            }
+            let horas=días*24;
+            while (horas>24){
+                horas-=24;
+            }
+            let minutos=horas*60;
+            while (minutos>60){
+                minutos-=60;
+            }
+            let segundos=minutos*60;
+            while (segundos>60){
+                segundos-=60;
+            }
+            let array=[[Math.floor(años),Math.floor(meses),Math.floor(días)],
+            [Math.floor(horas),Math.floor(minutos),Math.floor(segundos)]];
+            console.log(hoy);
+            console.log(fecha);
+            console.log(diferencia);
+            array.forEach(element => {
+                console.log(element);
+            });
+        </script>
+    </body>
+</html>

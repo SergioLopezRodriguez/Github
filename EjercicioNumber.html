@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio Number</title>
+    </head>
+    <body>
+        <script>
+            let año=prompt("Introduce un año bisiesto o no.");
+            console.log(esBisiesto(año));
+            function esBisiesto(year){
+                if(parseInt(year)%4==0 && year.substr(year.length-2,2)!="00"){
+                    return 1;    
+                }
+                if(year.substr(year.length-2,2)=="00"){
+                        if(parseInt(year)%400==0)
+                        return 1;
+                }
+                return 0;
+            }
+        </script>
+    </body>
+</html>
