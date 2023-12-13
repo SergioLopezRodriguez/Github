@@ -1,0 +1,11 @@
+{
+    "nombre":"Ana Martín",
+    "profesion":"Programadora",
+    "edad":23,
+    "lenguajes":["Java","Javascript","C*++"],
+    "disponibilidadParaViajar":false,
+    "rangoProfesional": {
+        "aniosDeExperiencia": 4,
+        "nivel": "Junior"
+    }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            //1 Definir Objetos
+            //1.1 Objeto Act 3.2 Objeto tvSamsung
+            function tvSamsung(){
+                this.nombre = 'TV Samsung';
+                this.categoria = 'Televisores';
+                this.unidades = 4;
+                this.precio = 345.95;
+                this.importe = function(){
+                    return this.unidades*this.precio;
+                }
+            }
+            var tvSamsung = new tvSamsung();
+            window.alert(tvSamsung.importe());
+            //1.1 Objeto Act 3.1 Objeto Productos
+            function Productos(nombre,categoria,unidades,precio){
+                this.nombre = nombre;
+                this.categoria = categoria;
+                this.unidades = unidades;
+                this.precio = precio;
+                this.importe = function(){
+                    return this.unidades*this.precio;
+                }
+                this.getInfo = function(){
+                    return this.nombre + " (" + this.categoria + "): " + this.unidades + 
+                    " uds x " + this.precio + " €= " + this.importe() +" €";
+                }
+            }
+            var producto1 = new Productos('phillipsTv','Televisor',5,500);
+            var producto2 = new Productos('thermomix','Electrodomestico',10,200);
+            var producto3 = new Productos('lgScreen','Informática',6,80);
+
+            window.alert(producto1.getInfo());
+            window.alert(producto2.getInfo());  
+            window.alert(producto3.getInfo());
+            //1.1 Objeto Act 3.2 Objeto Televisores
+            function Televisores(nom,cat,unidades,precio,tamaño){
+                Productos.call(this,nom,cat,unidades,precio);
+                this.tamaño = tamaño;
+            }
+            Televisores.prototype = Object.create(Productos.prototype);
+
+            Televisores.prototype.getInfo2 = function(){
+                return this.nombre + " (" + this.categoria + "): " + this.unidades + 
+                    " uds x " + this.precio + " €= " + this.importe() +" € tamaño: " + this.tamaño;
+            }
+            var televisor1 = new Televisores('lgtv','Televisor',5,1000,42);
+            window.alert(televisor1.getInfo2());
+            window.alert(televisor1.tamaño);
+
+            //2. Trabajando con Objetos
+            //2.1 ToString() 
+            //Act 4.1
+            Productos.prototype.toString = function(){
+                return this.nombre + " (" + this.categoria + ")";
+            }
+            Televisores.prototype.toString = function(){
+                return this.nombre + " (" + this.categoria + ") tamaño: " + this.tamaño;
+            }
+            window.alert(producto1.toString());
+            window.alert(televisor1.toString());
+            //valueOf() 
+            //Act 4.2
+            Productos.prototype.valueOf = function(){
+                return this.precio;
+            }
+            Televisores.prototype.valueOf = function(){
+                return this.precio;
+            }
+            window.alert(producto1.valueOf());
+            window.alert(televisor1.valueOf());
+            //Act 4.4
+            pr1 = new Productos('Batidora','Electrodomestico',15,20);
+            pr2 = new Productos('Microondas','Electrodomestico',10,50);
+            pr3 = new Productos('Lavadora','Electrodomestico',6,100);
+            pr4 = new Productos('Frigorifico','Electrodomestico',2,1000);
+            pr5 = new Productos('Lavavajillas','Electrodomestico',1,200);
+            array = [pr1,pr2,pr3,pr4,pr5];
+
+            function prodOrdenPorNombre(array){
+                array.sort(function(a,b){return a.nombre.localeCompare(b.nombre);});
+            }
+            function prodOrdenPorPrecio(array){
+                array.sort(function(a,b){return a.precio-b.precio;});
+            }
+            function prodOrdenPorPrecioTotal(array){
+                array.sort(function(a,b){return a.importe()-b.importe();});
+            }  
+            function prodOrdenPorMenosUnidades(array){
+                array.sort(function(a,b){return a.unidades-b.unidades;});
+            }
+            function prodLista(array){
+                var listado='Listado de Productos: ';
+                array.forEach(element => {
+                    listado=listado + "\nNombre: " + element.nombre 
+                    + " Categoría: " + element.categoria + " Unidades: " + element.unidades 
+                    + " Precio: " + element.precio + " Precio total: " + element.importe();
+                });
+                return listado;
+            }
+
+            console.log("Ordenado por Nombre");
+            prodOrdenPorNombre(array);
+            console.log(prodLista(array));
+            console.log("Ordenado por Precio Individual");
+            prodOrdenPorPrecio(array);
+            console.log(prodLista(array));
+            console.log("Ordenado por Precio Total");
+            prodOrdenPorPrecioTotal(array);
+            console.log(prodLista(array));
+            console.log("Ordenado por Unidades");
+            prodOrdenPorMenosUnidades(array);
+            console.log(prodLista(array));
+            </script>
+    </body>
+</html>

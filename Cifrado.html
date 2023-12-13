@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cifrado pe</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            var palabra=window.prompt("Introduce una palabra");
+            function codificacion(palabra){
+                var array=["pe"],
+                    vocales="aeiouAEIOU";
+                if(palabra.search(/[\s]/)==-1 && palabra.search(/[ÁáÉéÍíÓóÚú]/)==-1){
+                    palabra.split("");
+                    for(var i = 0; i < palabra.length; i++){
+                        array.push(palabra[i]);
+                        if(vocales.includes(palabra[i]) && !vocales.includes(palabra[i+1]) && i+1 != palabra.length)
+                        array.push("pe");
+                    }
+                    }
+                    return array.join("");
+                }
+            window.alert(codificacion(palabra));
+        </script>
+    </body>
+</html>
