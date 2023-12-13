@@ -22,6 +22,12 @@
         //Calcular el promedio de edades de los usuarios filtrados.
         let promedio = usuarios.reduce((suma,usuario) => suma+usuario.edad,0)/usuarios.length;
         console.log(promedio);
+        //Encontrar al usuario más joven de entre los filtrados
+        let joven = mayores.reduce((joven,actual) => {return actual.edad<joven.edad ? actual : joven},mayores[0]);
+        console.log(joven);
+        //Obtener una lista de nombres de usuarios que empiezan con la letra 'A'
+        let empA = usuarios.filter((usuario) => usuario.nombre.startsWith('A'));
+        console.log(empA);
     </script>
 </body>
 </html>

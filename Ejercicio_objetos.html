@@ -14,11 +14,15 @@
             {id: 3, nombre: 'Pedro', edad:20},
             {id: 4, nombre: 'Ana', edad:35},
         ]
-        /*Se requiere:
-          Filtrar los usuarios mayores de 25 años.
-        */
-       const menores = usuarios.filter((usuario) => usuario.edad >25);
-       console.log(menores);
+        //Filtrar los usuarios mayores de 25 años.
+       let mayores = usuarios.filter((usuario) => usuario.edad >25);
+       console.log(mayores);
+       //Duplicar la edad de los usuarios filtrados
+       mayores = mayores.map((usuario) => ({...usuario, edad: usuario.edad*2}));
+       console.log(mayores);
+       //Obtener la suma total de las edades duplicadas
+       let suma = mayores.reduce((suma,usuario) => suma+usuario.edad,0);
+       console.log(suma);
     </script>
 </body>
 </html>
