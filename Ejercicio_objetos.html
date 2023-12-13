@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+<body>
+    <script>
+        //Se tiene una lista de usuarios con la siguiente estructura:
+        const usuarios = [
+            {id: 1, nombre: 'Juan', edad:25},
+            {id: 2, nombre: 'María', edad:30},
+            {id: 3, nombre: 'Pedro', edad:20},
+            {id: 4, nombre: 'Ana', edad:35},
+        ]
+        /*Se requiere:
+          Filtrar los usuarios mayores de 25 años.
+        */
+       const menores = usuarios.filter((usuario) => usuario.edad >25);
+       console.log(menores);
+    </script>
+</body>
+</html>
