@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Buscaminas.css"/>
+</head>
+<body>
+    <form id="form">
+        <label for="tamaño">Dificultad:</label>
+        <input type="text" id="tamaño" name="tamaño" pattern="^[0-9]{1,2}[x][0-9]{1,2}$" placeholder="Ej. 16x16, 5x5"/><!--El patrón no debe funcionar con 0x0 ni 0x1 ni 1x0-->
+        <br/>
+        <input type="submit" value="Comenzar"/>
+    </form>
+    <script src="iniciarBuscaminas.js"></script>
+</body>
+</html>

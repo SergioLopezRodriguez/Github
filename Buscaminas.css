@@ -1,0 +1,36 @@
+body{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+form input{
+    margin-top: 10px;
+}
+button{
+    height: 47px;
+    width: 47px;
+}
+
+.mina {
+    background-color: red;
+}
+
+.mina_bandera{
+    background-color: yellow;
+}
+
+.bandera{
+    background-color: yellow;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.timer{
+    display: inline-block;
+    margin-left: 10px;
+}
+.counter{
+    display: inline-block;
+}
