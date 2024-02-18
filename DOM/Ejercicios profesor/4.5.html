@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 4.5</title>
+</head>
+<body>
+    <ul id="compra">
+        <li>Cerveza</li>
+        <li>Pan</li>
+        <li>Patatas</li>
+        <li>Azúcar</li>
+    </ul>
+    <textarea id="texto"></textarea>
+    <button id="add">Añadir</button>
+    <button id ="sort">Ordenar Alfabéticamente</button>
+    <script>
+        window.addEventListener("load",inicio);
+        function inicio(){
+            document.getElementById("add").addEventListener("click",add);
+            document.getElementById("sort").addEventListener("click",sort);
+            function add(){
+                let lista = document.getElementById("compra");
+                let elemento = document.createElement("li");
+                let texto = document.createTextNode(document.getElementById("texto").value);
+                elemento.appendChild(texto);
+                lista.appendChild(elemento);
+            }
+            function sort(){
+                let lista = document.getElementById("compra");
+                var elementos = lista.children; //coleccion de li
+
+                [].slice.call(elementos).sort(function(a, b) { //Generamos un array al que le pasamos la colección y utilizamos sort
+                return a.textContent.localeCompare(b.textContent); //Compara el primero con el siguiente y devuelve el valor alfabético más bajo
+                })
+                .forEach(function(elemento) { //utilizamos foreach para vincular los elementos del array a la lista
+                lista.appendChild(elemento);
+                });
+                //La linea entera sería [].slice.call(elementos).sort().foreach() pero para simplificar lo he escrito así
+            }
+        }
+    </script>
+</body>
+</html>

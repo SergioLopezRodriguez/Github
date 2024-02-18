@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>clase 27/10/2023</title>
+    </head>
+    <body>
+        <script>
+            //Creación de fechas con string
+            let fecha1=new Date("wed, Mar 25 2015 09:15 GMT +0100");
+            let fecha2=new Date("October 12 2023");
+            let fecha3=new Date("2023-05-27");
+            let fecha4=new Date("2023");
+            console.log(fecha1);
+            console.log(fecha2);
+            console.log(fecha3);    
+            console.log(fecha4);
+            //Creación de fechas con números
+            let fecha5=new Date(2023,11,10,14,30,25);//(Año,Mes,Día,Hora,Minuto,Segundo)
+            console.log(fecha5);
+            let fecha6=new Date(2023,11,10);//Año,mes,Día
+            console.log(fecha6);
+            let fechaMili=new Date(864000000);//Milisegundos
+            console.log(fechaMili);
+            //Por defecto la crea un toString() y es lo que imprime por pantalla
+            alert("Fecha: " + fecha1);
+            alert("toString: " + fecha1.toString()); //Por defecto realiza este
+            alert("toUTCString: " + fecha1.toUTCString()); //Este da una hora menos, utiliza el meridiano de Greenwich
+            alert("toDateString: " + fecha1.toDateString()); //Este de aquí elimina la zona horaria y la hora, es solo la fecha
+            //los dos últimos son más legibles
+            //Obtener por partes la información de un objeto Date
+            //getDay(día de la semana),getDate(día del mes),getMonth,getFullYear
+        </script>
+    </body>
+</html>

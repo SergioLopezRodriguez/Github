@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases</title>
+</head>
+<body>
+    <div id="mensaje"></div>
+    <script>
+        //JavaScript class is not an object.
+        //Is a template for JavaScript objects.
+        /*class Coche {
+            constructor (mar,mod){
+                this.marca = mar;
+                this.modelo = mod;
+            }
+        }
+        let miCoche = new Coche("Toyota","Yatis");
+        console.log($(miCoche.marca),$(miCoche.modelo));
+        */
+        //Herencia, la relación se hace mediante extends con super se accede a los elementos del padre
+        //Un elemento y una propiedad no pueden compartir nombre. 
+        //Para distinguirlos en caso de esto se incluye _ delante: _marca <- marca
+        window.addEventListener("load",function(){
+            class Coche{
+            constructor(marca){
+                this._marca = marca;
+            }
+                anuncio(){
+                    return "Ha llegado el nuevo coche de " + this.marca;
+            }
+                get marca(){
+                    return this.marca;
+                }
+                set marca(mar){
+                    this._marca = mar;
+                }
+        }
+            class Modelo extends Coche{
+                constructor(marca,modelo){
+                    super(marca);
+                    this._modelo = modelo;
+                }
+                anuncioCompleto(){
+                    return this. anuncio() + " ; el modelo " + this.modelo;
+                }
+                get modelo(){
+                    return this.modelo;
+                }
+                set _modelo(mod){
+                    this.modelo = mar;
+                }
+            }
+            let miCoche = new Modelo("Toyota","Aris");
+
+            mensaje.innerHTML = "Mi coche es un "+ miCoche._marca;
+        })
+        
+        
+    </script>
+</body>
+</html>

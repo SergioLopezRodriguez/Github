@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promesas</title>
+</head>
+<body>
+
+    <script>
+
+    //Ejemplo 1
+    setTimeout(()=>console.log("Ejecuto la función del ejemplo 1"),7000);
+
+    //Ejemplo 2
+    setTimeout(()=>console.log("Esta parte es asíncrona"),4000);
+    console.log("Esta parte es síncrona");
+
+    //Ejemplo 3
+    let miPromesa = new Promise((resolve,reject)=>(setTimeout(()=>resolve(console.log("Promesa ejecutada en 3 segundos")),3000)));
+
+    //Ejemplo 4
+    let realizado=true;
+    const tareaRealizada = new Promise((resolve,reject)=>{
+        if(realizado){
+            const trabajoCompletado = "La tarea se ha completado";
+            resolve(trabajoCompletado);
+            console.log(trabajoCompletado);
+        }else{
+            const trabajoFallido = "La tarea ha fallado";
+            resolve(trabajoFallido);
+            console.log(trabajoFallido);
+        }
+    })
+
+    //Ejemplo 5
+    const miPromesa2 = new Promise((resolve,reject)=>{
+        const numeroAleatorio = Math.floor(Math.random()*10);
+        setTimeout(()=>(numeroAleatorio>5 ? resolve(numeroAleatorio):reject(new Error("Se ha obtenido un número menor que 5"))),5000);
+    })
+    miPromesa2
+    .then(numeroAleatorio=>console.log(numeroAleatorio))
+    .catch(error=>console.log(error));
+
+    datos = ["uno","dos","tres"];
+
+    function getDatosProm(){
+        let Promesa = new Promise((resolve)=>{
+            resolve(datos);
+        })
+        Promesa.then(datos=>console.log(datos));
+    }
+
+    async function asyawt(){
+        try{
+            const misdatos = await getDatosProm();
+            console.log(misdatos);
+        }catch(err){
+            console.log(err.message);
+        }
+    }
+
+    asyawt();
+
+    </script>
+</body>
+</html>

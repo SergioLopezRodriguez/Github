@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.1</title>
+</head>
+<body>
+    <h1 id="titulo">Este es un título dinámico</h1>
+    <button id="cambiarColor">Cambiar Color</button>
+    <button id="cambiarTamano">Cambiar Tamaño de Fuente</button>
+    <script>
+        window.addEventListener("load",inicio,false);
+        function inicio(){
+            document.getElementById("cambiarColor").addEventListener("click",cambiarColor,false);
+            document.getElementById("cambiarTamano").addEventListener("click",cambiarTamano,false);
+        }
+
+        function cambiarColor(){
+            document.getElementById("titulo").style = "color:RGB("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+");";
+        }
+        function cambiarTamano(){
+            document.getElementById("titulo").style = "font-size: "+Math.floor(Math.random()*100) + "px;";
+        }
+    </script>
+</body>
+</html>

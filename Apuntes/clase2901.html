@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 29/01/2024</title>
+</head>
+<body>
+    <div id="saludo"></div>
+    <button id="inc">Incrementar</button>
+    <button id="dec">Decrementar</button>
+    <button id="logout">Log out</button>
+    <div id="visita"></div>
+    <div id="contador" style="display: inline-block;"></div>
+    <script>
+        console.log(localStorage.usuario);
+        
+        if(typeof(Storage)!=="undefined"){ //Comprobación si el navegador soporta Web Storage
+            alert("El navegador sí soporta Web storage");
+        }
+
+        if(localStorage.usuario!==undefined){ //Se comprueba si el usuario ha ingresado en algún momento en la página
+            document.getElementById("saludo").innerHTML = "¡Bienvenid@ de nuevo " + localStorage.usuario + "!";
+        }else{
+            localStorage.usuario = prompt("¿Cuál es tu nombre?");
+            document.getElementById("saludo").innerHTML = "¡Bienvenido!, Esta es tu primera visita " + localStorage.usuario;
+        }
+
+        if(!sessionStorage.getItem("contador"))sessionStorage.setItem("contador","1");
+
+        document.getElementById("contador").innerHTML= "Contador: " + sessionStorage.getItem("contador");
+        window.onload = iniciar;
+        function iniciar(){
+            document.getElementById("inc").addEventListener("click",Incrementar,false);
+            document.getElementById("dec").addEventListener("click",decrementar,false);
+            document.getElementById("logout").addEventListener("click",logout,false);
+        }
+        
+        function Incrementar(){ //Por algún motivo esto incrementa en 1 un string no un número
+            sessionStorage.setItem("contador",Number(sessionStorage.getItem("contador")+1));
+            document.getElementById("contador").innerHTML= "Contador: " + sessionStorage.getItem("contador");
+        }
+        function decrementar(){
+            if(sessionStorage.getItem("contador")>1){
+            sessionStorage.setItem("contador",Number(sessionStorage.getItem("contador")-1));
+            document.getElementById("contador").innerHTML= "Contador: " + sessionStorage.getItem("contador");
+            }else
+            alert("No se puede bajar a menos de 0")
+        }
+        function logout(){
+            alert("Se ha cerrado la sesión de ") + localStorage.getItem("usuario");
+            localStorage.removeItem("usuario");
+            sessionStorage.removeItem("contador");
+            window.location.replace("clase2901.html");
+        }
+    </script>
+</body>
+</html>

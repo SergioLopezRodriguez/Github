@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 201</title>
+</head>
+<body>
+    <script>
+        //Obtener la fecha y hora actual
+        let fecha = new Date();
+        alert(fecha);
+        //Mezclar dos arrays
+        let array = [1,2,3];
+        let array2 = [4,5,6];
+        let arrayResultado = array.concat(array2);
+        alert(arrayResultado);
+        //Borrar elementos repetidos de un array
+        let repetidos = [1,2,3,1,2,3];
+        repetidos = Array.from(new Set(repetidos));
+        alert(repetidos);
+        //Generar un número aleatorio entre dos valores dados
+        let valor = 1;
+        let valor2 = 5;
+        let numeroAleatorio = Math.random() * (valor2-valor) + valor;
+        numeroAleatorio = Math.floor(numeroAleatorio);
+        alert(numeroAleatorio);
+        //Generar una cadena alfanumérica aleatoria;
+        let caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let cadena = '';
+        for (i = 0; i<=Math.floor(Math.random()*50);i++){
+            let caracter = caracteres.charAt(Math.floor(Math.random()*caracteres.length));
+            cadena+=caracter;
+        }
+        alert(cadena);
+        //Convertir un objeto en un array
+        //Copiar texto al portapapeles
+        //Comprobar si una propiedad existe en un objeto
+        let persona = {dni: '123142123A'};
+        if('dni' in persona){
+            alert(persona.dni);
+        }else{
+            alert('Dni no existe en persona');
+        }
+        //Ordenar un array en orden ascendente
+        let ascendente = [5,4,3,2,1];
+        ascendente.sort(function(a,b){return a - b});
+        alert(ascendente);
+        //Obtener la longitud de un objeto
+        let persona2 = {
+            dni: 'x',
+            nombre: 's',
+            apellido: 'a'
+        }
+        let cantidad=0;
+        for (clave in persona2){
+            cantidad++;
+        }
+        alert(cantidad);
+    </script>
+</body>
+</html>

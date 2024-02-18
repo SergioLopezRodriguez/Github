@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 Promesas</title>
+</head>
+<body>
+    <button id="bt">Ejecutar promesa</button>
+    <div id="contadores"></div>
+    <script>
+        /*Contar las veces que se pulsa el botón
+            1ª vez:Contador con un 1
+            dentro de la promesa antes del timeout empieza el código asíncrono
+            dentro del then  Código asñincrono terminado
+            fuera del then codigo sincrono terminado
+            setTimeout(function(){resolve (this.contador);},Math.random()*4000+1000)
+        */
+        cont = 0;
+        document.getElementById("bt").addEventListener("click",probarPromise,false);
+        document.getElementById("contadores").innerHTML += "Empieza el código síncrono ";
+        function probarPromise(){
+            cont += 1;
+            let contador = cont;
+            let promesa = new Promise((resolve,reject)=>{
+                document.getElementById("contadores").innerHTML += "<br/>Empieza el código asíncrono ";
+                setTimeout(()=>(resolve(this.contador),reject(new Error("Fallo en la promesa"))),Math.random()*4000+1000)
+            })
+            promesa
+            .then(cont=>document.getElementById("contadores").innerHTML += "<br/>" + contador + " Código asíncrono terminado")
+            .catch(error=>console.log(error));
+       }
+       document.getElementById("contadores").innerHTML += " Código síncrono terminado";
+
+    </script>
+</body>
+</html>

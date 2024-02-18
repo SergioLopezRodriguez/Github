@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        error{
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post" id="miFormulario">
+        <table>
+            <tr>
+                <td>Nombre</td>
+                <td>
+                    <input type="text" name="nombre" id="nombre" maxlength="15" pattern="[A-Za-z]{3,15}" title="Introduce entre 3 y 15 caracteres" placeholder="Introduce tu nombre" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Edad</td>
+                <td>
+                    <input type="number" name="edad" id="edad" min="18" max="120" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Teléfono</td>
+                <td>
+                    <input type="text" name="telefono" id="telefono" pattern="[0-9]{9}" max="9" title="Introduce 9 dígitos" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" name="enviar" id="enviar" value="enviar"/>
+                </td>
+            </tr>
+        </table>
+        <div class="" id="mensajeError"></div>
+    </form>
+    <script src="validation.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22/01/2024</title>
+    <style>
+        .error{
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" id="nombre" placeholder="Introduce tu nombre"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="tel" id="phone" placeholder="Introduce tu número de teléfono"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" class="" id="fnac d" size="2"/>
+                    <input type="number" class="" id="fnac m" size="2"/>
+                    <input type="number" class="" id="fnac y" size="4"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hombre<input type="radio" name="sexo" value="H" checked/> Mujer<input type="radio" name="sexo" value="M"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ¿Eres mayor de edad?<input type="checkbox" id="mayor"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" id="enviar" value="Enviar"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        //Formas de acceder al DOM
+        /*var formulario = document.getElementById("miFormulario");
+        var formulario2 = document.forms["miFormulario"];
+        var formulario3 = document.getElementsByTagName("form")[0];
+        var formulario4 = document.forms[0];*/
+
+        window.onload = iniciar;
+
+        function iniciar(){
+            document.getElementById("enviar").addEventListener("click",validar,false);
+        }
+
+        function validar(){
+            if(validarNombre() && validarTelefono() && validarFecha() && confirm("Estoy seguro que quiero enviar el formulario")){
+                console.log("enviado");
+                return true;
+            }
+            return false;
+        }
+
+        function validarNombre(){
+            var elemento = document.getElementById("nombre");
+            if(elemento.value==""){
+                return false;
+            }
+            return true;
+        }
+
+        function validarTelefono(){
+            var elemento = document.getElementById("phone");
+            if(isNaN(elemento.value)){
+                return false;
+            }
+            return true;
+        }
+
+        function validarFecha(){
+            var day = document.getElementById("fnac d");
+            var month = document.getElementById("fnac m");
+            var year = document.getElementById("fnac y");
+            limpiarError(day);
+            limpiarError(month);
+            if(day > 31){ error(day); return false;};
+            if(month > 12){ error(month); return false;};
+            var fecha = new Date(year.value, month.value, day.value);
+            return true;
+        }
+
+        function validarMayor(){
+
+        }
+        function error(elemento){
+            elemento.className = "error";
+            elemeto.focus();
+        }
+
+        function limpiarError(elemento){
+            elemento.className = "";
+        }
+
+    </script>
+</body>
+</html>

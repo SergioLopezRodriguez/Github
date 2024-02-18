@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Document Object Model</title>
+        <style>
+            .miClase {
+                color: red;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", inicio);
+            function inicio() {
+                document.getElementById("crearParrafo").addEventListener("click", crearParrafo);
+                document.getElementById("crearImagen").addEventListener("click", crearImagen);
+                document.getElementById("borrarUltimo").addEventListener("click", borrarUltimo);
+                document.getElementById("borrarPrimero").addEventListener("click", borrarPrimero);
+                document.getElementById("sustituirPrimVacio").addEventListener("click", sustituirPrimero);
+                document.getElementById("punto").addEventListener("click",adderspunto);
+            }
+            //Añadir un botón que añada/borre un "." al final de la línea.
+
+            function crearParrafo(){
+                let parrafo = document.createElement("p");
+                let text = document.createTextNode(document.getElementById("texto").value);
+                parrafo.appendChild(text);
+
+                parrafo.setAttribute("class", "miClase");
+
+                let cont = document.getElementById("div1");
+                cont.appendChild(parrafo);
+            }
+
+            function crearImagen(){
+                let img = document.createElement("img");
+                let ruta = prompt("Introduce la ruta de la imagen");
+                img.setAttribute("src", ruta);
+                let cont = document.getElementById("div1");
+                cont.appendChild(img);
+            }
+
+            function borrarUltimo(){
+                let cont = document.getElementById("div1");
+                cont.removeChild(cont.lastChild);
+            }
+
+            function borrarPrimero(){
+                let cont = document.getElementById("div1");
+                cont.removeChild(cont.firstChild);
+            }
+
+            function sustituirPrimero(){
+                let cont = document.getElementById("div1");
+                let first = cont.firstChild;
+                first.textContent=document.getElementById("texto").value;
+            }
+
+            function adderspunto(){
+                let cont = document.getElementById("div1");
+                for(let i=0;i<cont.children.length;i++){
+                    if(cont.children[i].textContent.substring(cont.children[i].textContent.length-1)=="."){
+                        cont.children[i].textContent = cont.children[i].textContent.substring(0,cont.children[i].textContent.length-1);
+                    }else{
+                        cont.children[i].textContent += ".";
+                    }
+                }
+            }
+        </script> 
+    </head>
+    <body>
+        <div id="div1"></div>
+        <br/>
+        <textarea id="texto"></textarea>
+        <br/>
+        <button id="crearParrafo">Crear parrafo</button>
+        <button id="crearImagen">Crear imagen</button>
+        <button id="borrarUltimo">Borrar ultimo</button>
+        <button id="borrarPrimero">Borrar primero</button>
+        <button id="sustituirPrimVacio">Sustituir primer párrafo por nuevo texto</button>
+        <button id="punto">Añadir/Borrar punto al final de la linea</button>
+    </body>
+</html>

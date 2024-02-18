@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 202</title>
+    <style>
+        #cuerpo {
+            margin: 10px;
+            border: 1px solid;
+        }
+        form {
+            text-align: center;
+        }
+        #contador{
+            position: relative;
+            margin-left: 60px;
+        }
+        input{
+            margin-top: 10px;
+        }
+        input,select,button{
+            border-radius: 15px;
+        }
+        .error{
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post" id="miFormulario">
+        <div id="cuerpo">
+            <fieldset><legend>Datos personales</legend>
+                Introduce tu nombre <input type="text" name="nombre" id="nombre" required/><span id="nombreerror" class="error" style="display: hidden;"></span><br/><br/>
+                Introduce tu nif <input type="text" name="nif" id="nif" required/><span id="niferror" class="error" style="display: hidden;"></span><br/><br/>
+                
+                Mensaje<br/>
+                <textarea id="mensaje" minlength="2" maxlength="500"></textarea><span id="mensajeerror" class="error" style="display: hidden;"></span><br/>
+                <div id="contador">0/500 caracteres</div><br/>
+
+            </fieldset>
+            Elige un color:<br/>
+            Rojo <input type="radio" name="color"/><br/>
+            Verde <input type="radio" name="color"/><br/>
+            Azul <input type="radio" name="color" checked/><br/><br/>
+            
+            Selecciona una fecha de matriculación
+            <input type="date" id="fecha" required/><span id="fechaerror" class="error" style="display: hidden;"></span><br/><br/>
+
+            
+
+
+            Selecciona un curso académico
+            <select name="curso" id="curso" required>
+                <option>20-21</option>
+                <option>21-22</option>
+                <option>22-23</option>
+                <option selected>23-24</option>
+            </select><br/>
+            <input type="text" id="nc" style="width: 40px;"/><input type="button" id="nuevo" value="Añadir nuevo curso académico"/><span id="cursoerror" class="error" style="display: hidden;"></span><br/><br/>
+
+            Selecciona una asignatura
+            <select name="asignatura" id="asignatura">
+                <option>DWES</option>
+                <option selected>DWEC</option>
+                <option>DIW</option>
+                <option>DAW</option>
+                <option>Ingles</option>
+                <option>Empresas</option>
+            </select><br/><br/>
+            
+            Selecciona los días con disponibilidad<br/>
+            <input type="checkbox" name="dias" checked/>Lunes<br/>
+            <input type="checkbox" name="dias"/>Martes<br/>
+            <input type="checkbox" name="dias"/>Miércoles<br/>
+            <input type="checkbox" name="dias"/>Jueves<br/>
+            <input type="checkbox" name="dias"/>Viernes<br/><br/>
+
+            <span id="diaserror" class="error" style="display: hidden;"></span>
+            
+            Selecciona el día preferente
+            <select name="dia" id="dia">
+                <option selected>Lunes</option>
+                <option>Martes</option>
+                <option>Miércoles</option>
+                <option>Jueves</option>
+                <option>Viernes</option>
+            </select><br/><br/>
+                
+            <button name="enviar" id="enviar">Haz clic para enviar información</button>
+            <button type="reset" name="cero" id="cero">Comenzar a rellenar de nuevo</button>
+            <button type="button" name="clicar" id="clicar">Haz clic sobre mí</button>
+        </div>
+    </form>
+    <script src="202SLR.js"></script>
+</body>
+</html>

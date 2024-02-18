@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura</title>
+</head>
+<body>
+    <div id="contenedor">DIV
+        <input type="button" id="boton" value="Botón"/>
+    </div>
+    <script>
+        document.getElementById("contenedor").addEventListener("click",function(){
+            console.log("Contenedor hizo click");
+        })
+
+        document.getElementById("boton").addEventListener("click",function(e){
+            console.log("Boton hizo click");
+            e.stopPropagation();
+        })
+    </script>
+</body>
+</html>
